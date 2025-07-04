@@ -25,7 +25,7 @@ revisao-dev/
 <table>
   <thead>
     <tr>
-      <th>Pasta</th>
+      <th style="width: 300px">Pasta</th>
       <th>Conteúdo</th>
     </tr>
   </thead>
