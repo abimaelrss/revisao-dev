@@ -5,5 +5,5 @@
 - **Modelo:** John Deere 6100J
 - **Ano de Fabricação:** 2020
 - **Horímetro Inicial:** 0h
-- **Última Atualização:** 01/07/2025
-
+- **Horímetro Atual:** 500h
+- **Última Atualização:** 05/07/2025
