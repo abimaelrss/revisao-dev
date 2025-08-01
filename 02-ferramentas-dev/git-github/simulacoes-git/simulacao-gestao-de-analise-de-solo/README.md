@@ -65,7 +65,7 @@ A simulação é dividida em etapas que cobrem os seguintes conceitos e comandos
 
 ## 🛠️ Como Reproduzir a Simulação
 
-Para reproduzir este projeto e praticar os comandos, siga as instruções detalhadas no arquivo `Roteiro 8 - Simulação Git Aplicada. Sistema de Gestão de Análise de Solo.pdf` anexo.
+Para reproduzir este projeto e praticar os comandos, siga as instruções detalhadas no arquivo `roteiro.md` anexo.
 
 ## ✨ Comandos Utilizados (Resumo)
 
