@@ -1,6 +1,4 @@
-# Git e GitHub
-
-## 💡 O que é o Git?
+# 💡 O que é o Git?
 
 Git é um sistema de controle de versão distribuído, criado por Linus Torvalds, que permite acompanhar o histórico de alterações em arquivos de um projeto.
 
@@ -37,9 +35,11 @@ Este arquivo contém um resumo dos principais comandos básicos de Git.
 | `git diff` | Mostra as linhas que foram adicionadas e removidas |
 | `git commit -m "mensagem"` | Cria um novo commit com a mensagem informada |
 | `git commit --amend -m "nova mensagem"` | Altera a mensagem do último commit (antes de enviar para o remoto). Se já enviou para um remoto e outras pessoas já puxaram, usar `--amend` e forçar `push` pode causar problemas para o time |
-| `git reset --hard HEAD~1` | Volta ao último commit |
-| `git reset --hard <id-do-commit>` |  |
-| `git reset --soft HEAD~1` | Volta ao último commit, mantendo os arquivos no staging |
+| `git reset` | Move o ponteiro do HEAD para um commit anterior, podendo também modificar a staging area e o diretório de trabalho, conforme a opção usada (--soft, --mixed, --hard) |
+| `git reset --soft HEAD~1`	| Volta um commit, mantendo todas as alterações na staging area (index). Ideal para refazer o último commit |
+| `git reset --soft <id-do-commit>`	| Move o HEAD para o commit especificado, mantendo as alterações dos commits seguintes na staging area |
+| `git reset --hard HEAD~1` | Volta um commit e descarta completamente as alterações da staging area e do diretório de trabalho. Irreversível |
+| `git reset --hard <id-do-commit>`	| Move o HEAD para o commit especificado e apaga todas as alterações posteriores, inclusive do diretório de trabalho. Cuidado: essa operação é destrutiva |
 | `git rm -f <arquivo>` | Remove um arquivo do staging e do diretório |
 | `git rm --cached <arquivo>` | Remove um arquivo do staging sem apagar localmente |
 | `git restore <arquivo>` | Desfaz modificações locais em um arquivo |
@@ -83,37 +83,136 @@ Este arquivo contém um resumo dos principais comandos básicos de Git.
 
 ## ☑️ Boas práticas de commits
 
-### 🔡 Commits semânticos
+### O que são Commits Semânticos?
 
-Commits semânticos (Convention Commits) é uma maneira de formatar as mensagens dos commits de forma objetiva e clara.
+Commits semânticos (ou *Conventional Commits*) são uma forma padronizada de escrever mensagens de commit. Eles seguem uma estrutura simples que inclui um **tipo** e uma **descrição**, e opcionalmente um **escopo** e um **corpo** mais detalhado.
 
-- Usar commits semânticos traz mais clareza do histórico do projeto.
-- Permite o versionamento semântico, geração automática de changelogs.
-- Melhora a qualidade do código.
-- Facilita a manutenção do código.
+**Estrutura básica:**`<tipo>: <mensagem curta e objetiva>`
 
----
+**Benefícios:**
 
-### 🧱 Estrutura básica
-
-<tipo>: <mensagem curta e objetiva no imperativo>
+- **Clareza no Histórico:** Facilita a compreensão do que cada commit faz.
+- **Automação:** Permite a geração automática de changelogs (listas de mudanças) e o versionamento semântico (`v1.0.0`, `v1.0.1`, etc.).
+- **Colaboração:** Ajuda a equipe a navegar e entender o desenvolvimento do projeto.
 
 ---
 
-### Tipos mais usados
+### Tipos Comuns de Commits Semânticos e Exemplos
 
-| Tipo | Descrição | Exemplo |
-| --- | --- | --- |
-| `feat` | Adiciona uma nova funcionalidade | feat: adiciona componente de login |
-| `fix` | Corrige um bug | fix: corrige erro no botão de envio |
-| `docs` | Mudanças na documentação do projeto | docs: atualiza README com instruções de uso |
-| `style` | Mudança de formatação (espaços, ponto e vírgula, etc.) | style: remove espaços extras no CSS |
-| `refactor` | Refatoração de código (sem alterar comportamento) | refactor: melhora legibilidade da função de cálculo |
-| `test` | Adição ou alteração de testes | test: adiciona teste para componente Header |
-| `chore` | Tarefas que não afetam o código (ex: configs) | chore: atualiza dependências do projeto |
+| Tipo | Descrição |
+| --- | --- |
+| `feat` | Adiciona uma nova funcionalidade ou recurso. |
+| `fix` | Corrige um bug. |
+| `docs` | Mudanças na documentação (README, comentários, etc.). |
+| `style` | Mudanças de formatação que não afetam o significado do código (espaços em branco, ponto e vírgula, formatação de código). |
+| `refactor` | Refatoração de código que não altera o comportamento, apenas a estrutura/legibilidade. |
+| `test` | Adiciona, corrige ou melhora testes. |
+| `chore` | Tarefas de manutenção que não afetam o código de produção (atualização de dependências, configurações de build, scripts). |
+| `perf` | Melhorias de performance. |
+| `build` | Mudanças que afetam o sistema de build ou dependências externas (npm, yarn, gulp, etc.). |
+| `ci` | Mudanças nos arquivos e scripts de CI (Continuous Integration). |
+| `revert` | Reverte um commit anterior. |
 
 ---
 
-# 👨🏻‍💻 Projetos práticos para praticar comandos Git
+### Exemplos Detalhados de Mensagens de Commit
+
+### `feat` (Feature - Nova Funcionalidade)
+
+- `feat: adiciona componente de login de usuario`
+- `feat(dashboard): implementa grafico de vendas por mes`
+- `feat: permite cadastro de novos produtos no sistema`
+- `feat(api): cria endpoint para listagem de clientes`
+- `feat: adiciona funcionalidade de busca por nome na lista de animais`
+
+### `fix` (Fix - Correção de Bug)
+
+- `fix: corrige erro de digitacao no formulario de contato`
+- `fix(autenticacao): resolve problema de login com senhas invalidas`
+- `fix: ajusta layout responsivo em dispositivos moveis`
+- `fix(relatorio): corrige calculo de media no relatorio de produtividade`
+- `fix: impede quebra da aplicacao ao carregar imagem grande`
+
+### `docs` (Docs - Documentação)
+
+- `docs: atualiza README com instrucoes de instalacao`
+- `docs(api): adiciona documentacao para novo endpoint de usuarios`
+- `docs: corrige erros de portugues nos comentarios do codigo`
+- `docs: cria guia de contribuicao para o projeto`
+- `docs(manual): detalha protocolo de vacinacao de bezerros`
+
+### `style` (Style - Estilo/Formatação)
+
+- `style: remove espacos em branco extras no CSS`
+- `style(lint): aplica padrao de formatacao com Prettier`
+- `style: padroniza uso de ponto e virgula em arquivos JS`
+- `style: ajusta indentacao em arquivos de configuracao`
+- `style: organiza imports em ordem alfabetica`
+
+### `refactor` (Refactor - Refatoração de Código)
+
+- `refactor: melhora legibilidade da funcao de calculo de GPMD`
+- `refactor(autenticacao): reestrutura modulo de autenticacao para melhor manutencao`
+- `refactor: extrai logica de validacao para funcao separada`
+- `refactor: renomeia variaveis para maior clareza`
+- `refactor: otimiza estrutura de dados de registro de animais`
+
+### `test` (Test - Testes)
+
+- `test: adiciona teste unitario para componente Header`
+- `test(api): cria testes de integracao para endpoint de produtos`
+- `test: corrige falha em teste de validacao de formulario`
+- `test: implementa cobertura de testes para funcao de calculo de custos`
+- `test: adiciona mock para servico externo em testes`
+
+### `chore` (Chore - Tarefas de Manutenção)
+
+- `chore: atualiza dependencias do projeto para versoes mais recentes`
+- `chore: configura ambiente de desenvolvimento local`
+- `chore: remove arquivos temporarios nao utilizados`
+- `chore: adiciona script para deploy automatico`
+- `chore: ajusta configuracao de linter`
+
+### `perf` (Perf - Performance)
+
+- `perf: otimiza carregamento de imagens na pagina inicial`
+- `perf(database): melhora performance de consulta de historico de animais`
+- `perf: reduz tempo de execucao de algoritmo de analise de solo`
+- `perf: implementa cache para dados de pastagem`
+- `perf: minimiza uso de memoria em processamento de dados`
+
+### `build` (Build - Sistema de Build/Dependências)
+
+- `build: atualiza versao do Node.js no package.json`
+- `build(deps): adiciona nova dependencia para geracao de relatorios`
+- `build: configura webpack para otimizacao de assets`
+- `build: ajusta script de build para ambiente de producao`
+- `build: remove dependencia nao utilizada`
+
+### `ci` (CI - Integração Contínua)
+
+- `ci: configura pipeline de CI/CD no GitHub Actions`
+- `ci: adiciona etapa de teste automatico ao workflow`
+- `ci: corrige erro de permissao no script de deploy`
+- `ci: configura notificacoes de build para o Slack`
+- `ci: otimiza tempo de execucao do pipeline de CI`
+
+### `revert` (Revert - Reversão de Commit)
+
+- `revert: reverte commit "feat: adiciona funcionalidade experimental"`
+- `revert: "fix: corrige problema de cache" - causou novos bugs`
+
+---
+
+### Dicas Adicionais:
+
+- **Mantenha a mensagem concisa:** A primeira linha deve ter no máximo 50-72 caracteres.
+- **Use o imperativo:** "adiciona", "corrige", "remove", e não "adicionei", "corrigi".
+- **Escopo (opcional):** Use parênteses para indicar a parte do projeto afetada (`feat(autenticacao):`).
+- **Corpo (opcional):** Para commits mais complexos, adicione uma linha em branco após a primeira linha e escreva um parágrafo mais detalhado sobre o "porquê" da mudança.
+
+Praticar esses exemplos vai te ajudar a internalizar a estrutura e a pensar de forma mais organizada sobre cada mudança que você faz no seu projeto.
+
+Bons estudos, cumpanheiro!
 
 ---
