@@ -117,7 +117,7 @@ São atributos que não precisam de um valor. A simples presença do atributo na
 ```html
 <input type="checkbox" checked />
 <!-- A caixa de seleção já vem marcada -->
- 
+
 <input type="text" disabled />
 <!-- O campo de texto não pode ser editado -->
 ```
@@ -265,11 +265,11 @@ A tag `<a>` é usada para criar links. O atributo `href` é obrigatório e defin
 
 - **Link para outro site:**`target="_blank"` abre o link em uma nova aba.
   `rel="noopener noreferrer"` é uma prática de segurança recomendada com `target="_blank"`.
-      **Exemplo:**
+  **Exemplo:**
 
-      ```html
-      <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Ir para o Google</a>
-      ```
+  ```html
+  <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Ir para o Google</a>
+  ```
 - **Link para uma seção da mesma página:**
   **Exemplo:**
   ```html
