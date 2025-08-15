@@ -1,3 +1,4 @@
+```json
 {
   // Tamanho da fonte
   "editor.fontSize": 20,
@@ -19,5 +20,6 @@
   "zenMode.fullScreen": false,
   // Desativa o center layout
   "zenMode.centerLayout": false,
-  "zenMode.showTabs": "single",
+  "zenMode.showTabs": "single"
 }
+```
