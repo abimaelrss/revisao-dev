@@ -12,7 +12,7 @@ body {
 #page {
   box-sizing: border-box;
   width: 800px;
-  margin: 48px auto;
+  margin: 48px auto 28px;
   padding: 24px;
   background-color: #f0e8c2;
   border-radius: 24px;
@@ -49,6 +49,16 @@ h2 {
   margin-bottom: 4px;
   line-height: 150%;
 }
- ul {
+ul {
   padding-left: 24px;
- }
+}
+
+footer {
+  color: #291b1a;
+  text-align: center;
+  padding-bottom: 48px;
+}
+
+footer img {
+  vertical-align: middle;
+}
