@@ -1,0 +1,1 @@
+https://www.figma.com/design/tJcsvE9Pj3JKWQJ0ilY3YU/P%C3%A1gina-de-receita--Community---Copy-?node-id=0-1&p=f&t=Q7Nn36pc6dKSk3U0-0
