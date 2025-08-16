@@ -123,7 +123,7 @@ p::first-line {
 
 ---
 
-# 🎯 Módulo 2 — CSS Flexbox
+# 🎯 CSS Flexbox
 
 O **Flexbox** é um modelo de layout no CSS que facilita alinhar, distribuir e organizar elementos dentro de um container.
 
@@ -131,7 +131,7 @@ Ele resolve problemas comuns de centralização e espaçamento sem precisar de f
 
 ---
 
-### 🧩 Conceitos básicos
+## 🧩 Conceitos básicos
 
 - **Flex Container** → o elemento pai com `display: flex;`
 - **Flex Itens** → os elementos filhos dentro do container
@@ -149,7 +149,7 @@ Exemplo:
 
 ---
 
-### 🧩 `justify-content`
+## 🧩 `justify-content`
 
 Alinha os itens **no eixo principal**.
 
@@ -169,7 +169,7 @@ Alinha os itens **no eixo principal**.
 
 ---
 
-### 🧩 `align-items`
+## 🧩 `align-items`
 
 Alinha os itens **no eixo cruzado**.
 
@@ -188,7 +188,7 @@ Alinha os itens **no eixo cruzado**.
 
 ---
 
-### 🧩 `gap` e `margin`
+## 🧩 `gap` e `margin`
 
 - `gap` → cria espaço entre itens
 - `margin` → espaço fora de cada item
@@ -202,7 +202,7 @@ Alinha os itens **no eixo cruzado**.
 
 ---
 
-### 🧩 Multi-line (`flex-wrap`)
+## 🧩 Multi-line (`flex-wrap`)
 
 Permite quebrar linha quando os itens não cabem.
 
@@ -219,7 +219,7 @@ Permite quebrar linha quando os itens não cabem.
 
 ---
 
-### 🧩 `flex-basis`
+## 🧩 `flex-basis`
 
 Define o tamanho **base** de um item.
 
@@ -231,7 +231,7 @@ Define o tamanho **base** de um item.
 
 ---
 
-### 🧩 `flex-grow` e `flex-shrink`
+## 🧩 `flex-grow` e `flex-shrink`
 
 - `flex-grow` → quanto o item **cresce** em relação aos outros
 - `flex-shrink` → quanto o item **encolhe** em relação aos outros
@@ -247,7 +247,7 @@ Define o tamanho **base** de um item.
 
 ---
 
-### 🧩 Shorthand `flex`
+## 🧩 Shorthand `flex`
 
 Atalho para `flex-grow flex-shrink flex-basis`.
 
@@ -259,7 +259,7 @@ Atalho para `flex-grow flex-shrink flex-basis`.
 
 ---
 
-### 🧩 `order`
+## 🧩 `order`
 
 Define a ordem de exibição dos itens.
 
@@ -271,7 +271,7 @@ Define a ordem de exibição dos itens.
 
 ---
 
-### 🧩 `flex-flow`
+## 🧩 `flex-flow`
 
 Atalho para `flex-direction` + `flex-wrap`.
 
@@ -284,7 +284,7 @@ Atalho para `flex-direction` + `flex-wrap`.
 
 ---
 
-### 🧩 `align-content` (para várias linhas)
+## 🧩 `align-content` (para várias linhas)
 
 Alinha o **conjunto das linhas** no eixo cruzado.
 
@@ -302,5 +302,126 @@ Alinha o **conjunto das linhas** no eixo cruzado.
   align-content: center;
 }
 ```
+
+---
+
+# 🎯 CSS Grid
+
+## 🧩 Explicando o CSS Grid
+
+- Sistema de layout em **duas dimensões** (linhas e colunas).
+- Dá controle total sobre alinhamento, espaçamento e posicionamento.
+- É como desenhar uma tabela flexível, mas muito mais poderosa.
+
+## 🧩 Fundamentos do Grid no código
+
+```css
+.container {
+  display: grid; /* ativa o grid */
+  grid-template-columns: 200px 1fr 200px; /* 3 colunas */
+  grid-template-rows: auto auto; /* 2 linhas automáticas */
+}
+```
+
+---
+
+## 🧩 Grid Template Columns / Rows
+
+Define quantas colunas e linhas o grid terá e seus tamanhos.
+
+```css
+grid-template-columns: 1fr 2fr 1fr;
+grid-template-rows: 100px auto 50px;
+```
+
+---
+
+## 🧩 Grid Column / Grid Row
+
+Permite um item ocupar várias colunas ou linhas.
+
+```css
+.item1 {
+  grid-column: 1 / 3; /* ocupa da coluna 1 até antes da 3 */
+  grid-row: 1 / 2; /* ocupa só a primeira linha */
+}
+```
+
+---
+
+## 🧩 Grid Template Areas
+
+Nomeia áreas do layout para simplificar.
+
+```css
+.container {
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+
+.header {
+  grid-area: header;
+}
+.sidebar {
+  grid-area: sidebar;
+}
+.main {
+  grid-area: main;
+}
+.footer {
+  grid-area: footer;
+}
+```
+
+---
+
+## 🧩 Gap
+
+Controla o espaço entre linhas e colunas.
+
+```css
+grid-gap: 20px; /* ou column-gap / row-gap */
+```
+
+---
+
+## 🧩 Shorthand Grid Template
+
+Agrupa linhas e colunas numa só propriedade.
+
+```css
+grid: auto-flow 100px / 1fr 1fr 1fr;
+```
+
+---
+
+## 🧩 Introdução aos alinhamentos
+
+- **justify-content** → alinha no eixo horizontal.
+- **align-content** → alinha no eixo vertical.
+- **justify-items** → alinha os itens dentro das células no eixo horizontal.
+- **align-items** → alinha os itens dentro das células no eixo vertical.
+- **align-self / justify-self** → alinhamento individual por item.
+
+---
+
+## 🧩 Propriedades grid-auto
+
+Definem comportamento de linhas/colunas criadas automaticamente.
+
+```css
+grid-auto-rows: 100px;
+grid-auto-columns: minmax(100px, auto);
+grid-auto-flow: column; /* muda a direção padrão */
+```
+
+---
+
+## 🧩 Grid ou Flex?
+
+- Use **Flexbox** → quando o layout é em **uma dimensão só** (linha **ou** coluna).
+- Use **Grid** → quando precisa de **duas dimensões** (linha **e** coluna juntas).
 
 ---
