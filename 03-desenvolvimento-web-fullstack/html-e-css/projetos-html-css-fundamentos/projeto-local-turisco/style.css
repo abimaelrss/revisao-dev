@@ -1,0 +1,27 @@
+:root {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h1,
+h2,
+h3,
+.headline {
+  font-weight: 700;
+}
+
+#subtitle {
+  font-style: italic;
+}
