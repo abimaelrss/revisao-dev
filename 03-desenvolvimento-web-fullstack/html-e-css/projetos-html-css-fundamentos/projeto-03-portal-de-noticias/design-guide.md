@@ -1,0 +1,1 @@
+https://www.figma.com/design/GcO6o4rJyitDYIW97L9BA4/Portal-de-not%C3%ADcias--Community-?node-id=0-1&p=f&t=cSilTpkd3sVEscEx-0
