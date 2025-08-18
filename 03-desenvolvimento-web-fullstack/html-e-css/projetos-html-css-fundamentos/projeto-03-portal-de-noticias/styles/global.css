@@ -9,10 +9,10 @@
   --brand-color-dark: #1d4ed8;
   --bg-color: #0f172a;
   --stroke-color: #1e293b;
-  --text-color-primary: #F1F5F9;
+  --text-color-primary: #f1f5f9;
   --text-color-secondary: #cbd5e1;
 
-  --font-family:  "Archivo", sans-serif;
+  --font-family: "Archivo", sans-serif;
   --h1: 800 24px/135% var(--font-family);
   --h2: 800 16px/140% var(--font-family);
   --h3: 800 14px/140% var(--font-family);
@@ -36,7 +36,9 @@ a:hover {
   color: var(--brand-color-light);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font: inherit;
 }
 
@@ -52,4 +54,16 @@ img {
 
 main {
   margin-top: 40px;
+}
+
+.content-tag {
+  display: inline-block;
+  background-color: var(--brand-color-dark);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font: 500 10px/1.2 var(--font-family);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-color-primary);
+  box-shadow: 0px 4px 16px rgba(2, 6, 23, 0.25);
 }
