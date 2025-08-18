@@ -1,6 +1,8 @@
-/* utility-first */
+/* Utilitárias baseadas no estilo utility-first (inspirado no Tailwind).
+   Usar para grids, gaps e tipografia rápida. */
+
 .grid {
-  display: grid;  
+  display: grid;
 }
 
 .grid-flow-col {

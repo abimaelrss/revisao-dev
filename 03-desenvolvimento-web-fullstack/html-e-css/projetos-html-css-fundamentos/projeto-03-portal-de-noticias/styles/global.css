@@ -36,10 +36,16 @@ a:hover {
   color: var(--brand-color-light);
 }
 
-h1,
-h2,
+h1 {
+  font: var(--h1);
+}
+
+h2 {
+  font: var(--h2);
+}
+
 h3 {
-  font: inherit;
+  font: var(--h3);
 }
 
 img {
