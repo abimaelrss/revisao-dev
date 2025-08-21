@@ -1,0 +1,41 @@
+#services {
+  margin: 0 auto;
+  padding-block: 88px 120px;
+
+  background-color: var(--gray-100);
+
+  header {
+    text-align: center;
+
+    p {
+      margin-bottom: 8px;
+      color: var(--red);
+    }
+
+    h2 {
+      margin-bottom: 56px;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 24px;
+
+    .serviceCard {
+      width: 280px;
+      height: 155px;
+
+      padding: 20px;
+
+      border: solid 2px var(--gray-200);
+      border-radius: 12px;
+      font: var(--text-sm);
+
+      h3 {
+        margin-block: 20px 8px;
+      }
+    }
+  }
+}

@@ -50,6 +50,12 @@ h3 {
   font: var(--title-sm);
 }
 
+h1,
+h2,
+h3 {
+  color: var(--gray-600);
+}
+
 .subtitle {
   font: var(--subtitle);
 }
@@ -58,5 +64,4 @@ h3 {
   width: 100%;
   max-width: 1040px;
   margin: 0 auto;
-  padding: 0 20px;
 }
