@@ -34,6 +34,8 @@
 
 body {
   font: var(--text-md);
+  background-color: var(--gray-200);
+  color: var(--gray-500);
 }
 
 h1 {
@@ -50,4 +52,11 @@ h3 {
 
 .subtitle {
   font: var(--subtitle);
+}
+
+.container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
 }

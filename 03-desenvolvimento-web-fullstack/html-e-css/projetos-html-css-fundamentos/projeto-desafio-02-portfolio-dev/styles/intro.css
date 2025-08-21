@@ -1,0 +1,80 @@
+#intro {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 94px;
+
+  /* height: 100vh; */
+  height: 750px;
+  background: url("../assets/images/Background_Intro.png") no-repeat
+    center/cover;
+
+  #info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    header {
+      width: 680px;
+
+      #avatar {
+        width: 96px;
+        display: flex;
+        margin-inline: auto;
+        margin-block: 120px 56px;
+
+        position: relative;
+
+        #user {
+          width: 96px;
+          height: 96px;
+          object-fit: cover;
+
+          border: 2px solid var(--red);
+          border-radius: 50%;
+          outline: 3px solid var(--gray-200);
+          outline-offset: -4.5px;
+        }
+
+        #code {
+          color: var(--green);
+          position: absolute;
+          bottom: -3px;
+          right: -3px;
+        }
+      }
+
+      h1 {
+        margin-block: 8px 20px;
+      }
+
+      .subtitle span {
+        color: var(--red);
+      }
+
+      p:nth-child(4) {
+        font: var(--text-sm);
+        color: var(--gray-400);
+        margin-top: 8px;
+      }
+    }
+
+    #tags {
+      display: flex;
+      gap: 16px;
+
+      margin-top: 80px;
+
+      .tag {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        background-color: var(--gray-300);
+        padding: 8px 16px;
+        border-radius: 999px;
+      }
+    }
+  }
+}
