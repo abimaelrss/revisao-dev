@@ -58,6 +58,8 @@ h3 {
 
 .subtitle {
   font: var(--subtitle);
+  margin-bottom: 8px;
+  color: var(--red);
 }
 
 .container {

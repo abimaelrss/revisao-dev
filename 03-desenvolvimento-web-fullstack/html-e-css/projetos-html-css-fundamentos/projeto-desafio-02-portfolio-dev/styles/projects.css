@@ -6,11 +6,6 @@
   header {
     text-align: center;
 
-    p {
-      margin-bottom: 8px;
-      color: var(--red);
-    }
-
     h2 {
       margin-bottom: 53px;
     }

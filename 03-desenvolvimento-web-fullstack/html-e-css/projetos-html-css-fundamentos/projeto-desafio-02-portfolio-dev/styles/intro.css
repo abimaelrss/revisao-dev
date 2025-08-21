@@ -27,14 +27,14 @@
         position: relative;
 
         #user {
-          width: 96px;
-          height: 96px;
+          width: 87px;
+          height: 87px;
           object-fit: cover;
 
           border: 2px solid var(--red);
           border-radius: 50%;
-          outline: 3px solid var(--gray-200);
-          outline-offset: -4.5px;
+          outline: 4px solid var(--gray-200);
+          outline-offset: -6px;
         }
 
         #code {
@@ -49,8 +49,12 @@
         margin-block: 8px 20px;
       }
 
-      .subtitle span {
-        color: var(--red);
+      p.subtitle {
+        color: var(--gray-500);
+        
+        span {
+          color: var(--red);
+        }
       }
 
       p:nth-child(4) {
