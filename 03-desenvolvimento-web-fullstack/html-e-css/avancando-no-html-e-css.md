@@ -668,7 +668,7 @@ Usado para agrupar campos de forma semântica.
 
 ---
 
-# 📝 Exemplo de Formulário Completo
+## 📝 Exemplo de Formulário Completo
 
 ```html
 <form action="/cadastro" method="POST" enctype="multipart/form-data">
