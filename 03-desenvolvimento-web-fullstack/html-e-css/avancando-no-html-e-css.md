@@ -425,3 +425,398 @@ grid-auto-flow: column; /* muda a direção padrão */
 - Use **Grid** → quando precisa de **duas dimensões** (linha **e** coluna juntas).
 
 ---
+
+# 📝 Formulários em HTML
+
+Formulários permitem que o usuário **envie dados** ou **interaja** com a aplicação.
+
+Eles são a principal forma de coletar informações em páginas web.
+
+---
+
+## 📌 Estrutura básica
+
+```html
+<form action="/enviar" method="POST">
+  <!-- campos do formulário -->
+</form>
+```
+
+- **action** → URL de destino dos dados.
+- **method** → define como os dados são enviados:
+  - `GET` → anexa na URL (útil para buscas).
+  - `POST` → envia no corpo da requisição (mais seguro).
+
+---
+
+## 🔘 Button
+
+O elemento `button` é usado para disparar ações.
+
+### Tipos principais
+
+- `type="submit"` → envia o formulário.
+- `type="reset"` → limpa os campos.
+- `type="button"` → apenas um botão comum.
+
+### Outros atributos
+
+- `autofocus` → foca no botão ao carregar a página.
+- `disabled` → desabilita o botão.
+- `name` e `value` → identificam e enviam valores.
+
+```html
+<button type="submit">Enviar</button> <button type="reset">Limpar</button>
+```
+
+---
+
+## ✏️ Input
+
+Elemento mais usado em formulários.
+
+### Atributos fundamentais
+
+- `name` → nome do campo (essencial para envio).
+- `type` → tipo de input (`text`, `email`, `number`...).
+
+### Atributos gerais
+
+- `value`, `autocomplete`, `size`, `autofocus`,
+- `disabled`, `readonly`, `form`, `required`, `placeholder`.
+
+---
+
+### 🔤 Input Text
+
+```html
+<input type="text" name="nome" placeholder="Seu nome" required />
+```
+
+---
+
+### 🔢 Input Number
+
+- `min` → valor mínimo.
+- `max` → valor máximo.
+- `step` → intervalo.
+
+```html
+<input type="number" name="idade" min="0" max="120" step="1" />
+```
+
+---
+
+### 📧 Input Email
+
+- `multiple` → permite vários e-mails.
+- `minlength`, `maxlength` → restringem tamanho.
+- `pattern` → validação com regex.
+
+```html
+<input type="email" name="email" multiple required />
+```
+
+---
+
+### 🔑 Input Password
+
+- `minlength`, `maxlength`, `pattern`
+- `title` → dica para o padrão.
+- `inputmode` → define teclado no mobile.
+
+```html
+<input
+  type="password"
+  name="senha"
+  minlength="6"
+  required
+  pattern="[A-Za-z0-9]{6,}"
+  title="Use apenas letras e números"
+/>
+```
+
+---
+
+### 📂 Input File
+
+- `enctype="multipart/form-data"` deve ser usado no `form`.
+- `multiple` → vários arquivos.
+- `accept` → restringe tipos (`.jpg,.png,.pdf`).
+
+```html
+<form enctype="multipart/form-data">
+  <input type="file" name="curriculo" accept=".pdf" required />
+</form>
+```
+
+---
+
+### 🎚️ Input Range
+
+```html
+<input type="range" name="volume" min="0" max="100" step="10" />
+```
+
+---
+
+### 🎨 Input Color
+
+```html
+<input type="color" name="cor" value="#ff0000" />
+```
+
+---
+
+### ☑️ Checkbox
+
+- Pode ter múltiplos valores.
+
+```html
+<input type="checkbox" name="linguagens" value="html" checked /> HTML
+<input type="checkbox" name="linguagens" value="css" /> CSS
+```
+
+---
+
+### 🔘 Radio
+
+- Permite apenas uma opção por grupo (`name` igual).
+
+```html
+<input type="radio" name="genero" value="M" /> Masculino
+<input type="radio" name="genero" value="F" /> Feminino
+```
+
+---
+
+### 👻 Hidden
+
+- Campo oculto usado para enviar informações extras.
+
+```html
+<input type="hidden" name="idUsuario" value="123" />
+```
+
+---
+
+## 🏷️ Label
+
+Associa texto descritivo a um campo → melhora acessibilidade.
+
+```html
+<label for="email">E-mail:</label>
+<input type="email" id="email" name="email" />
+```
+
+---
+
+## 📝 Textarea
+
+Atributos: `rows`, `cols`, `maxlength`, `wrap`, `placeholder`.
+
+```html
+<textarea name="mensagem" rows="5" cols="30" required></textarea>
+```
+
+---
+
+## 🔽 Select
+
+- `multiple` → várias seleções.
+- `size` → quantos itens aparecem.
+- `optgroup` → agrupa opções.
+
+```html
+<select name="pais">
+  <option value="br">Brasil</option>
+  <option value="us">EUA</option>
+</select>
+```
+
+---
+
+## 📦 Fieldset
+
+Usado para agrupar campos de forma semântica.
+
+```html
+<fieldset>
+  <legend>Dados Pessoais</legend>
+  <input type="text" name="nome" />
+  <input type="number" name="idade" />
+</fieldset>
+```
+
+---
+
+## 🆕 Novos Inputs (HTML5)
+
+- `date`, `time`, `datetime-local`
+- `url`, `tel`, `search`
+- `month`, `week`
+
+📖 Sempre conferir compatibilidade em [caniuse.com](https://caniuse.com/).
+
+---
+
+## ✅ Próximos passos
+
+- Estudo constante → documentação oficial MDN.
+- Validação → aprender `required`, `pattern` e depois validação em **JavaScript**.
+- Acessibilidade → sempre usar `label` e textos descritivos.
+
+---
+
+# 📝 Exemplo de Formulário Completo
+
+```html
+<form action="/cadastro" method="POST" enctype="multipart/form-data">
+  <fieldset>
+    <legend>Dados Pessoais</legend>
+
+    <label for="nome">Nome completo:</label>
+    <input
+      type="text"
+      id="nome"
+      name="nome"
+      placeholder="Seu nome"
+      required
+      minlength="3"
+      maxlength="80"
+    />
+    <br /><br />
+
+    <label for="idade">Idade:</label>
+    <input
+      type="number"
+      id="idade"
+      name="idade"
+      min="0"
+      max="120"
+      step="1"
+      required
+    />
+    <br /><br />
+
+    <label for="email">E-mail:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="exemplo@email.com"
+      required
+      multiple
+    />
+    <br /><br />
+
+    <label for="senha">Senha:</label>
+    <input
+      type="password"
+      id="senha"
+      name="senha"
+      required
+      minlength="6"
+      maxlength="20"
+      pattern="[A-Za-z0-9]{6,}"
+      title="A senha deve ter entre 6 e 20 caracteres, apenas letras e números"
+    />
+    <br /><br />
+
+    <label for="telefone">Telefone:</label>
+    <input
+      type="tel"
+      id="telefone"
+      name="telefone"
+      placeholder="(00) 00000-0000"
+      pattern="\(\d{2}\)\s\d{5}-\d{4}"
+      title="Formato esperado: (00) 00000-0000"
+    />
+    <br /><br />
+
+    <label for="site">Site pessoal:</label>
+    <input type="url" id="site" name="site" placeholder="https://meusite.com" />
+  </fieldset>
+
+  <fieldset>
+    <legend>Preferências</legend>
+
+    <p>Gênero:</p>
+    <input type="radio" id="masc" name="genero" value="M" checked />
+    <label for="masc">Masculino</label>
+
+    <input type="radio" id="fem" name="genero" value="F" />
+    <label for="fem">Feminino</label>
+
+    <input type="radio" id="outro" name="genero" value="O" />
+    <label for="outro">Outro</label>
+    <br /><br />
+
+    <label>Áreas de interesse:</label><br />
+    <input type="checkbox" id="html" name="interesses" value="html" checked />
+    <label for="html">HTML</label>
+
+    <input type="checkbox" id="css" name="interesses" value="css" />
+    <label for="css">CSS</label>
+
+    <input type="checkbox" id="js" name="interesses" value="js" />
+    <label for="js">JavaScript</label>
+    <br /><br />
+
+    <label for="pais">País:</label>
+    <select id="pais" name="pais" required>
+      <option value="">Selecione...</option>
+      <optgroup label="América">
+        <option value="br" selected>Brasil</option>
+        <option value="us">EUA</option>
+      </optgroup>
+      <optgroup label="Europa">
+        <option value="pt">Portugal</option>
+        <option value="es">Espanha</option>
+      </optgroup>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>Envios e Extras</legend>
+
+    <label for="foto">Foto de perfil:</label>
+    <input type="file" id="foto" name="foto" accept=".jpg,.png" required />
+    <br /><br />
+
+    <label for="cor">Cor favorita:</label>
+    <input type="color" id="cor" name="cor" value="#ff0000" />
+    <br /><br />
+
+    <label for="satisfacao">Nível de satisfação:</label>
+    <input
+      type="range"
+      id="satisfacao"
+      name="satisfacao"
+      min="0"
+      max="10"
+      step="1"
+      value="5"
+    />
+    <br /><br />
+
+    <label for="bio">Sobre você:</label><br />
+    <textarea
+      id="bio"
+      name="bio"
+      rows="4"
+      cols="40"
+      placeholder="Escreva algo sobre você..."
+      maxlength="300"
+    ></textarea>
+
+    <input type="hidden" name="idCadastro" value="12345" />
+  </fieldset>
+
+  <br />
+  <button type="submit">Enviar</button>
+  <button type="reset">Limpar</button>
+</form>
+```
+
+---
